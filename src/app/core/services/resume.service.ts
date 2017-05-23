@@ -3,6 +3,7 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
 import {CardAccomplishment, CardContent, ResumeStore} from '../models';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/combineLatest';
 
 @Injectable()
 export class ResumeService {
@@ -21,10 +22,11 @@ export class ResumeService {
     return this.accomplishments$;
   }
 
-  load(): Observable<ResumeStore> {
-    return Observable.of({
-      cards: this.contents,
-      accomplishments: this.accomplishments
-    });
+  load() {
+    return Observable.combineLatest(
+      this.contents,
+      this.accomplishments,
+      (cards, contents) => ({cards, contents})
+    );
   }
 }

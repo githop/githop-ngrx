@@ -6,7 +6,9 @@ import {compose} from '@ngrx/core/compose';
 import {storeFreeze} from 'ngrx-store-freeze';
 import {environment} from '../../../environments/environment';
 
-const reducers = { resumeReducer };
+
+const reducers = { resume: resumeReducer };
+
 const devReducers: ActionReducer<AppState> = compose(storeFreeze, combineReducers)(reducers);
 const prodReducers: ActionReducer<AppState> = combineReducers(reducers);
 

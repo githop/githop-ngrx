@@ -16,7 +16,7 @@ export class ResumeActions {
     };
   }
 
-  loadResumeSuccess(payload: ResumeStore): Action {
+  loadResumeSuccess(payload): Action {
     return {
       type: ResumeActions.LOAD_RESUME_SUCCESS,
       payload
