@@ -26,7 +26,7 @@ export class ResumeService {
     return Observable.combineLatest(
       this.contents,
       this.accomplishments,
-      (cards, contents) => ({cards, contents})
+      (cards, accomplishments) => ({cards, accomplishments})
     );
   }
 }

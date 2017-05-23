@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <p>
       landing Works!
+      check out my <a routerLink="resume">resume!</a>
     </p>
   `,
   styles: []

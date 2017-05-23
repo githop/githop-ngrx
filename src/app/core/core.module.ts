@@ -16,7 +16,7 @@ import {ResumeActions} from './actions/resume';
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(FIREBASE),
     EffectsModule.run(ResumeEffects),
-    StoreModule.provideStore({AppState: reducer})
+    StoreModule.provideStore(reducer)
   ],
   providers: [
     ResumeActions,

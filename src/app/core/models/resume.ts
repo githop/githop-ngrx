@@ -4,11 +4,12 @@ import {FirebaseListObservable} from 'angularfire2/database';
  */
 
 export interface ResumeStore {
-  cards: FirebaseListObservable<CardContent[]>;
-  accomplishments: FirebaseListObservable<CardAccomplishment[]>;
+  cards: CardContent[];
+  accomplishments: CardAccomplishment[];
 }
 
 export interface CardContent {
+  $key?: string;
   type: 'experience' | 'sideProjects' | 'talks' | 'startup' | 'education' | 'other';
   title: string;
   link?: string;
@@ -22,13 +23,17 @@ export interface CardContent {
 export interface ResumeCard {
   title: string;
   content: CardContent[];
-  contentKeys?: string[];
 }
 
 export interface CardAccomplishment {
-  $key: string;
+  parentKey: string;
   text: string;
 }
+
+export const initialResumeState = {
+  cards: [],
+  accomplishments: []
+};
 
 export type Partial<T> = {
   [P in keyof T]?: T[P];
