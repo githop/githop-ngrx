@@ -4,12 +4,12 @@ import {Observable} from 'rxjs/Observable';
  * Created by githop on 5/22/17.
  */
 
-export function resumeCards(): (state) => Observable<CardContent[]> {
+export function resumeCards(): (state: Observable<ResumeStore>) => Observable<CardContent[]> {
   return (state) => {
     return state
       .map(({cards, accomplishments}: ResumeStore) => {
-        return cards.reduce((newCards, card) => {
-          const _card = Object.assign({}, card);
+        return cards.reduce((newCards: CardContent[], card: CardContent) => {
+          const _card: CardContent = Object.assign({}, card);
           if (card.accomplishmentKeys) {
             _card.accomplishments = accomplishments.filter(a => a.parentKey === card.$key);
           }
@@ -20,13 +20,13 @@ export function resumeCards(): (state) => Observable<CardContent[]> {
   };
 }
 
-export function groupByCardType(): (state) => Observable<ResumeCard[]> {
+export function groupByCardType(): (state: Observable<ResumeStore>) => Observable<ResumeCard[]> {
   return (state) => {
     return state
       .let(resumeCards())
       .map((cards: CardContent[]) => {
-        const grouped = cards.reduce((obj, card) => {
-          if (obj[card.type] && obj[card.type].length) {
+        const grouped = cards.reduce((obj: any, card: CardContent) => {
+          if (obj[card.type]  && obj[card.type].length) {
             obj[card.type].push(card);
           } else {
             obj[card.type] = [card];
@@ -35,8 +35,8 @@ export function groupByCardType(): (state) => Observable<ResumeCard[]> {
         }, {});
 
         return (<any>Object).keys(grouped)
-          .map(key => {
-            key = {title: key, contents: grouped[key] };
+          .map((key: any) => {
+            key = {type: key, contents: grouped[key] };
             return key;
           });
       });

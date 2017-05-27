@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { LandingComponent } from './landing/landing.component';
 import {LayoutRoutesModule} from './layout.routes';
+import { NavComponent } from './nav/nav.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
@@ -10,6 +12,7 @@ import {LayoutRoutesModule} from './layout.routes';
     FlexLayoutModule,
     LayoutRoutesModule
   ],
-  declarations: [LandingComponent]
+  declarations: [LandingComponent, NavComponent, FooterComponent],
+  exports: [LandingComponent, NavComponent, FooterComponent]
 })
 export class LayoutModule { }

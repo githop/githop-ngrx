@@ -8,9 +8,10 @@ export interface ResumeStore {
   accomplishments: CardAccomplishment[];
 }
 
+export type CardTypes = 'experience' | 'sideProjects' | 'talks' | 'startup' | 'education' | 'other';
 export interface CardContent {
   $key?: string;
-  type: 'experience' | 'sideProjects' | 'talks' | 'startup' | 'education' | 'other';
+  type: CardTypes;
   title: string;
   link?: string;
   date: string;
@@ -21,7 +22,7 @@ export interface CardContent {
 }
 
 export interface ResumeCard {
-  title: string;
+  type: string;
   content: CardContent[];
 }
 

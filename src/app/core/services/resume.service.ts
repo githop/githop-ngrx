@@ -22,7 +22,7 @@ export class ResumeService {
     return this.accomplishments$;
   }
 
-  load() {
+  load(): Observable<ResumeStore> {
     return Observable.combineLatest(
       this.contents,
       this.accomplishments,

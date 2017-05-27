@@ -1,5 +1,5 @@
 import {Action} from '@ngrx/store';
-import {ResumeActions} from '../actions/resume';
+import * as ResumeActions from '../actions/resume';
 import {initialResumeState} from '../models/resume';
 /**
  * Created by githop on 5/21/17.

@@ -8,7 +8,6 @@ import {EffectsModule} from '@ngrx/effects';
 import {ResumeEffects} from './effects/resume';
 import {StoreModule} from '@ngrx/store';
 import { reducer } from './reducers/index';
-import {ResumeActions} from './actions/resume';
 
 @NgModule({
   imports: [
@@ -19,7 +18,6 @@ import {ResumeActions} from './actions/resume';
     StoreModule.provideStore(reducer)
   ],
   providers: [
-    ResumeActions,
     ResumeService
   ]
 })

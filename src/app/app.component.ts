@@ -3,10 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'gth-root',
   template: `
-    <h1>
-      {{title}}
-    </h1>
+    <gth-nav></gth-nav>
     <router-outlet></router-outlet>
+    <gth-footer></gth-footer>
   `,
   styles: []
 })

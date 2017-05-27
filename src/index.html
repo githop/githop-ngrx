@@ -7,15 +7,41 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel="stylesheet">
 </head>
-<body>
-  <gth-root>
+<body class="gth">
+<gth-root>
 
-    <nav>
-      <h1>Githop</h1>
-      <h1>Resume</h1>
-    </nav>
+  <div class="gth-nav gth-border">
+    <div class="gth-home">
+      <h1>githop</h1>
+    </div>
 
-  </gth-root>
+    <div class="gth-nav__controls">
+      <div>
+        <a href="/resume">resume</a>
+      </div>
+      <div>
+        <a href="/blog">blog</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="gth-splash gth-border">
+    <h1>Welcome</h1>
+
+    <div class="gth-splash__body">
+      <p>My name is Tom Hopkins. I live and work in Boulder, CO.</p>
+
+      <img class="gth-profile gth-border" src="/assets/githopProf.JPG"/>
+
+      <p>I enjoy learning new things, coding, and all of the outdoor fun that Colorado has to offer.</p>
+    </div>
+  </section>
+
+  <footer class="gth-footer gth-border">
+    <h3>Built with love by <a href="https://github.com/githop/githop-ng2" target="_blank" rel="noreferrer noopener">githop</a></h3>
+  </footer>
+</gth-root>
 </body>
 </html>

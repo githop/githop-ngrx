@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {CoreModule} from '../core/core.module';
 import { ResumeContainerComponent } from './resume-container/resume-container.component';
 import {ResumeRoutesModule} from './resume.routes';
+import { ResumeCardComponent } from './resume-card/resume-card.component';
 
 @NgModule({
   imports: [
@@ -10,6 +11,6 @@ import {ResumeRoutesModule} from './resume.routes';
     CoreModule,
     ResumeRoutesModule
   ],
-  declarations: [ResumeContainerComponent]
+  declarations: [ResumeContainerComponent, ResumeCardComponent]
 })
 export class ResumeModule { }

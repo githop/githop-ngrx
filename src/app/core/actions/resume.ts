@@ -1,32 +1,29 @@
 /**
  * Created by githop on 5/22/17.
  */
-import {Injectable} from '@angular/core';
 import {Action} from '@ngrx/store';
 import {ResumeStore} from '../models';
 
-@Injectable()
-export class ResumeActions {
-  static LOAD_RESUME = 'LOAD_RESUME';
-  static LOAD_RESUME_SUCCESS = 'LOAD_RESUME_SUCCESS';
-  static LOAD_RESUME_FAIL = 'LOAD_RESUME_FAIL';
-  loadResume(): Action {
-    return {
-      type: ResumeActions.LOAD_RESUME
-    };
-  }
+export const LOAD_RESUME = '[RESUME] Load';
+export const LOAD_RESUME_SUCCESS = '[RESUME] Load complete';
+export const LOAD_RESUME_FAIL = '[RESUME] Load fail';
 
-  loadResumeSuccess(payload): Action {
-    return {
-      type: ResumeActions.LOAD_RESUME_SUCCESS,
-      payload
-    };
-  }
-
-  loadResumeFail(payload): Action {
-    return {
-      type: ResumeActions.LOAD_RESUME_FAIL,
-      payload
-    };
-  }
+export class ResumeLoad implements Action {
+  readonly type = LOAD_RESUME;
 }
+
+export class ResumeLoadSuccess implements Action {
+  readonly type = LOAD_RESUME_SUCCESS;
+  constructor(public payload: ResumeStore) {}
+}
+
+export class ResumeLoadFail implements Action {
+  readonly type = LOAD_RESUME_FAIL;
+  constructor(public payload: any) {}
+}
+
+export type ResumeActions =
+  ResumeLoad
+  | ResumeLoadSuccess
+  | ResumeLoadFail;
+

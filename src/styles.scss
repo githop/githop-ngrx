@@ -1,1 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: 'Fira Mono', monospace;
+  background: linear-gradient(90deg, #F96A00, #FAAB00, #DAF204);
+}
+
+//wrapper
+.gth {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.gth-border {
+  border-image: linear-gradient(90deg, #F96A00, #FAAB00, #DAF204) 10;
+  border-width: 2px;
+  border-style: solid;
+}
+// nav css
+.gth-home {
+  cursor: pointer;
+}
+
+.gth-nav {
+  display: flex;
+  padding: 0 3px;
+  height: 20vh;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  color: #F90050;
+  font-size: 4.3vw;
+  border-bottom: none;
+}
+
+.gth-nav__controls div, .gth-nav div {
+  padding: 5px;
+}
+//landing css
+.gth-splash {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  //width: calc(100vw - 108px);
+  background: black;
+  color:white;
+  //padding: 0 50px;
+  border-bottom: 0;
+}
+
+.gth-profile {
+  width: 195px;
+  height: 195px;
+}
+
+.gth-footer {
+  //display: flex;
+  background: black;
+  color: white;
+  //height: 8vh;
+  text-align: center;
+  //align-self: flex-end;
+}
+
+.gith-nav a, .git-footer a {
+  color: #F90050;
+}
