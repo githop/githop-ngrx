@@ -73,3 +73,34 @@ html, body {
 .gith-nav a, .git-footer a {
   color: #F90050;
 }
+
+//gth-card
+
+.gth-card {
+  margin-bottom: 4px;
+}
+
+.gth-card__header {
+  color: #F90050;
+  background: black;
+}
+
+.gth-card__body {
+  background: white;
+  color: black;
+}
+
+.gth-card__header, .gth-card__body {
+  padding: 0.75em 6em;
+  margin-bottom: 4px;
+}
+
+.gth-blog__content {
+  padding: 0.75em 6em;
+}
+
+.header--sticky {
+  position: sticky;
+  position: -webkit-sticky;
+  top: -1px;
+}
