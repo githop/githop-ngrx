@@ -4,6 +4,7 @@ import {CoreModule} from '../core/core.module';
 import { ResumeContainerComponent } from './resume-container/resume-container.component';
 import {ResumeRoutesModule} from './resume.routes';
 import { ResumeCardComponent } from './resume-card/resume-card.component';
+import { ResumeCardselectComponent } from './resume-cardselect/resume-cardselect.component';
 
 @NgModule({
   imports: [
@@ -11,6 +12,6 @@ import { ResumeCardComponent } from './resume-card/resume-card.component';
     CoreModule,
     ResumeRoutesModule
   ],
-  declarations: [ResumeContainerComponent, ResumeCardComponent]
+  declarations: [ResumeContainerComponent, ResumeCardComponent, ResumeCardselectComponent]
 })
 export class ResumeModule { }

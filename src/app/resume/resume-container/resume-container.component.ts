@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {Store} from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import {AppState} from '../../core/models/appState';
-import {groupByCardType} from '../../core/selectors/resume';
+import { showResumeCards } from '../../core/selectors/resume';
 import {Observable} from 'rxjs/Observable';
 import {ResumeCard} from '../../core/models/resume';
 import * as ResumeActions from '../../core/actions/resume';
 import 'rxjs/add/operator/let';
+import 'rxjs/add/observable/combineLatest';
 
 @Component({
   selector: 'gth-resume-container',
@@ -16,6 +17,7 @@ import 'rxjs/add/operator/let';
   `],
   template: `
     <div class="gth-resume">
+      <gth-resume-cardselect (updateFilter)="updateFilter($event)"></gth-resume-cardselect>
       <gth-resume-card *ngFor="let card of resumeStore$ | async" [resumeCard]="card"></gth-resume-card>
     </div>
   `
@@ -26,8 +28,16 @@ export class ResumeContainerComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(new ResumeActions.ResumeLoad());
-    this.resumeStore$ = this.store.select('resume')
-      .let(groupByCardType());
+    this.store.dispatch(new ResumeActions.ResumeShowAll());
+    this.resumeStore$ = Observable.combineLatest(
+      this.store.select('resume'),
+      this.store.select('cardFilter')
+    )
+      .let(showResumeCards());
+  }
+
+  updateFilter(update: string) {
+    this.store.dispatch({type: update});
   }
 
 }

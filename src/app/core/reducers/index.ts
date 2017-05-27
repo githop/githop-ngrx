@@ -1,5 +1,5 @@
 
-import {resumeReducer} from './resume';
+import {cardFilter, resumeReducer} from './resume';
 import {Action, ActionReducer, combineReducers} from '@ngrx/store';
 import {AppState} from '../models/appState';
 import {compose} from '@ngrx/core/compose';
@@ -7,7 +7,7 @@ import {storeFreeze} from 'ngrx-store-freeze';
 import {environment} from '../../../environments/environment';
 
 
-const reducers = { resume: resumeReducer };
+const reducers = { resume: resumeReducer, cardFilter  };
 
 const devReducers: ActionReducer<AppState> = compose(storeFreeze, combineReducers)(reducers);
 const prodReducers: ActionReducer<AppState> = combineReducers(reducers);
