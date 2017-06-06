@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import {AppState} from '../../core/models/appState';
+import { AppState } from '../../core/models/appState';
 import { showResumeCards } from '../../core/selectors/resume';
-import {Observable} from 'rxjs/Observable';
-import {ResumeCard} from '../../core/models/resume';
+import { Observable } from 'rxjs/Observable';
+import { ResumeCard } from '../../core/models/resume';
 import * as ResumeActions from '../../core/actions/resume';
 import 'rxjs/add/operator/let';
 import 'rxjs/add/observable/combineLatest';
@@ -17,6 +17,7 @@ import 'rxjs/add/observable/combineLatest';
   `],
   template: `
     <div class="gth-resume">
+      <a routerLink="/resume/editor">edit</a>
       <gth-resume-cardselect (updateFilter)="updateFilter($event)"></gth-resume-cardselect>
       <gth-resume-card *ngFor="let card of resumeStore$ | async" [resumeCard]="card"></gth-resume-card>
     </div>

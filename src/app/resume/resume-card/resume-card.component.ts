@@ -1,9 +1,7 @@
 import { Component, Input } from '@angular/core';
-import {CardTypes, ResumeCard} from '../../core/models/resume';
+import { ResumeCard, titleMap } from '../../core/models/resume';
 
-type TitleMap = {
-  [P in CardTypes]: string;
-};
+
 
 @Component({
   selector: 'gth-resume-card',
@@ -41,14 +39,6 @@ export class ResumeCardComponent {
   @Input() resumeCard: ResumeCard;
 
   get type(): string {
-    const titleMap: TitleMap = {
-      'experience': 'Professional Experience',
-      'sideProjects': 'Side Projects',
-      'talks': 'Community / Talks',
-      'startup': 'Hackathons',
-      'education': 'Education',
-      'other': 'Other'
-    };
     return (<any>titleMap)[this.resumeCard.type];
   }
 }

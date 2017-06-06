@@ -9,6 +9,8 @@ import {ResumeEffects} from './effects/resume';
 import {StoreModule} from '@ngrx/store';
 import { reducer } from './reducers/index';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import { UserEffects } from './effects/user';
+import { UserService } from './services/user.service';
 
 @NgModule({
   imports: [
@@ -16,11 +18,13 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(FIREBASE),
     EffectsModule.run(ResumeEffects),
+    EffectsModule.run(UserEffects),
     StoreModule.provideStore(reducer),
     StoreDevtoolsModule.instrumentOnlyWithExtension()
   ],
   providers: [
-    ResumeService
+    ResumeService,
+    UserService
   ]
 })
 export class CoreModule { }

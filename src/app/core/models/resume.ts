@@ -9,6 +9,7 @@ export interface ResumeStore {
 }
 
 export type CardTypes = 'experience' | 'sideProjects' | 'talks' | 'startup' | 'education' | 'other';
+
 export interface CardContent {
   $key?: string;
   type: CardTypes;
@@ -40,3 +41,15 @@ export type Partial<T> = {
   [P in keyof T]?: T[P];
 };
 
+type TitleMap = {
+  [P in CardTypes]: string;
+};
+
+export const titleMap: TitleMap = {
+  'experience': 'Professional Experience',
+  'sideProjects': 'Side Projects',
+  'talks': 'Community / Talks',
+  'startup': 'Hackathons',
+  'education': 'Education',
+  'other': 'Other'
+};
