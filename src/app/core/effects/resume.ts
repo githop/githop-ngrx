@@ -13,9 +13,6 @@ import * as ResumeActions from '../actions/resume';
 
 @Injectable()
 export class ResumeEffects {
-  constructor(
-    private actions$: Actions,
-    private resumeService: ResumeService) {}
 
     @Effect()
     loadResume$ = this.actions$
@@ -23,4 +20,8 @@ export class ResumeEffects {
       .switchMap(_ => this.resumeService.load())
       .map((payload) => new ResumeActions.ResumeLoadSuccess(payload))
       .catch(err => Observable.of(new ResumeActions.ResumeLoadFail(err)));
+
+  constructor(
+    private actions$: Actions,
+    private resumeService: ResumeService) {}
 }

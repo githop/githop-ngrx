@@ -1,4 +1,5 @@
 import {Action} from '@ngrx/store';
+import {Article} from '../models/blog';
 /**
  * Created by githop on 5/30/17.
  */
@@ -13,7 +14,7 @@ export class BlogLoad implements Action {
 
 export class BlogLoadSuccess implements Action {
   readonly type = BLOG_LOAD_SUCCESS;
-  constructor(public payload: any) {}
+  constructor(public payload: Article[]) {}
 }
 
 export class BlogLoadFail implements Action {

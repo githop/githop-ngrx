@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { LandingComponent } from './landing/landing.component';
-import {LayoutRoutesModule} from './layout.routes';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     FlexLayoutModule,
-    LayoutRoutesModule
+    RouterModule
   ],
   declarations: [LandingComponent, NavComponent, FooterComponent],
   exports: [LandingComponent, NavComponent, FooterComponent]
